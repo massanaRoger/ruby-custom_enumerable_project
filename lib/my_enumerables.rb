@@ -42,6 +42,16 @@ module Enumerable
     end
     true
   end
+
+  def my_count
+    count = 0
+    arr = self
+    return arr.length unless block_given?
+    for el in arr do
+      count += 1 if yield(el)
+    end
+    count
+  end
 end
 
 # You will first have to define my_each
