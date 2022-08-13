@@ -9,6 +9,31 @@ module Enumerable
     end
     arr
   end
+
+  def my_select
+    arr = self
+    arr_return = []
+    for el in arr do
+      arr_return.push(el) if yield(el)
+    end
+    arr_return
+  end
+
+  def my_all?
+    arr = self
+    for el in arr do
+      return false unless yield(el)
+    end
+    true
+  end
+
+  def my_any?
+    arr = self
+    for el in arr do
+      return true if yield(el)
+    end
+    false
+  end
 end
 
 # You will first have to define my_each
