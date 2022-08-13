@@ -52,6 +52,24 @@ module Enumerable
     end
     count
   end
+
+  def my_map
+    arr = self
+    arr_return = []
+    for el in arr do
+      arr_return.push(yield(el))
+    end
+    arr_return
+  end
+
+  def my_inject(initial_value)
+    arr = self
+    return_value = initial_value
+    for el in arr do
+      return_value = yield(return_value, el)
+    end
+    return_value
+  end
 end
 
 # You will first have to define my_each
